@@ -55,23 +55,10 @@
 		</dependency>
 
 	</dependencies>
+	
+	
 
-	<build>
-	<plugins>
-	<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.4</version>
-        <configuration>
-          <suiteXmlFiles>
-          <!-- TESTNG SUITE FOR XM FILES-->
-            <suiteXmlFile>testng.xml</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
 
-	</plugins>
-	</build>
 	
 	
 	
@@ -79,6 +66,48 @@
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 	</properties>
+
+
+<profiles>
+		<profile>
+			<id>RT</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.5.4</version>
+						<configuration>
+							<suiteXmlFiles>
+								<!-- TESTNG SUITE FOR XM FILES-->
+								<suiteXmlFile>testng_RT.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>ST</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.5.4</version>
+						<configuration>
+							<suiteXmlFiles>
+								<!-- TESTNG SUITE FOR XM FILES-->
+								<suiteXmlFile>testng_ST.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+</profiles>
 
 
   
